@@ -8,6 +8,13 @@ This project consists of:
 Everything below is arranged in the correct order:
 1️⃣ **Database Setup** → 2️⃣ **Backend Setup** → 3️⃣ **Frontend Setup**
 
+
+
+## ▶️ Run file locally
+```bash
+source ./run.sh
+```
+
 ---
 
 # 🐘 1. PostgreSQL Installation & Setup
