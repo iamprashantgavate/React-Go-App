@@ -1,0 +1,34 @@
+name: Dev Workflow
+
+env:
+    SERVER_IP: 13.204.158.53
+
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: SSH to EC2, clone repo and deploy
+              uses: appleboy/ssh-action@master
+              with:
+                  host: ${{ env.SERVER_IP }}
+                  username: ubuntu
+                  key: ${{ secrets.EC2_PRIVATE_KEY }}
+                  script: |
+                      ip=13.204.158.53
+                      echo "Setting IP variable: $ip"
+                      git clone https://github.com/iamprashantgavate/React-Go-App.git
+                      sed -i "s|http://[0-9.]*:8080|http://$ip:8080|g" React-Go-App/frontend/.env
+                      cat React-Go-App/frontend/.env
+                      cd React-Go-App
+                      docker-compose up --build -d
+                      echo 'Deployment completed'
+            
+        
+            
