@@ -33,7 +33,7 @@ jobs:
                         git pull origin main
                         cd ..
                       fi
-                      sed -i "s|http://[0-9.]*:8080|http://$ip:8080|g" React-Go-App/frontend/.env
+                      sed -i "s|http://[0-9.]*:8080|http://${ip}:8080|g" React-Go-App/frontend/.env
                       cat React-Go-App/frontend/.env
                       cd React-Go-App
                       docker-compose up --build -d
