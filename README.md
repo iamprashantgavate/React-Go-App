@@ -100,7 +100,7 @@ go get ./backend/
 
 ## ▶️ Run Backend Server
 ```bash
-go run main.go
+go run ./backend/main.go
 ```
 
 ---
