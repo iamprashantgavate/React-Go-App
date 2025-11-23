@@ -26,3 +26,5 @@ spec:
               value: "password"
             - name: DB_NAME
               value: "employee_db"
+            - name: DB_PORT
+              value: "5432"
